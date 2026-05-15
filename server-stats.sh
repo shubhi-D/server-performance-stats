@@ -1,0 +1,32 @@
+#!/bin/bash
+
+echo "===== CPU Usage ====="
+top -bn1 | grep "Cpu(s)"
+
+echo ""
+echo "===== Memory Usage ====="
+free -h
+
+echo ""
+echo "===== Disk Usage ====="
+df -h
+
+echo ""
+echo "===== Top 5 Processes by CPU Usage ====="
+ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head -6
+
+echo ""
+echo "===== Top 5 Processes by Memory Usage ====="
+ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head -6
+
+echo ""
+echo "===== System Uptime ====="
+uptime
+
+echo ""
+echo "===== OS Version ====="
+uname -a
+
+echo ""
+echo "===== Logged In Users ====="
+who
